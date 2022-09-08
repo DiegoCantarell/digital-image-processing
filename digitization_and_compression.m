@@ -1,20 +1,19 @@
-img = input("Dame el nombre de la imagen:  ")
-%LECTURA DE IMAGEN
-I= imread(img);
-[m,n]=size(I);
-subplot(2,1,1)
+nombre = input("Give me the image name:  ")
+I=imread(nombre);
 imshow(I)
-I= double(I);
-[U,S,V]=svd(I);
-%ENTRE MENOR EL VALOR DE R, M'AS DISTORCIONADA LA IMAGEN
-r=input('Ingresa el valor de r: ')
-%CICLO PARA MODIFICAR IMAGEN
-for k=1:r
-    %
-    r = U(:,1:k)*S(1:k,1:k)*V(:,1:k)';
+[m,n] = size(I)
+[U, S, V] = svd(double(I));
+r = m
+r2 = 0
+for i=1:m
+    for j=1:n
+      if(r2 <= r)
+        I =  U(:,r2)*S(r2,r2)*V(:,r2)'
+        r2 += 1
+      end
+    end
 end
-%SE MUESTRA IMAGEN COMPRIMIDA
-I = uint8(r);
-subplot(2,1,2)
-imshow(I)
-
+%s = svd(double(I))
+%U(:,1)*S(1,1)*V(:,1)'
+%U(:,1)*S(1,1)*V(:,1)'+U(:,2)*S(2,2)*V(:,2)'
+%[U, S, V] = svd(double(I))

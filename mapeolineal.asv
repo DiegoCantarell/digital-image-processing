@@ -1,0 +1,4 @@
+function Is = mapeolineal(I)
+    [m,n] = size(I);
+    I = double(I);
+    min1 = min((min))

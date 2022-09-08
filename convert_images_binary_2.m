@@ -1,4 +1,4 @@
-% CONVERT IMAGES TO BINARY IMAGES example 2
+% CONVERT IMAGES TO BINARY IMAGES
 I = imread('pout.tif');
 J = imread('cameraman.tif');
 II = im2bw(I); %We convert the image to binary
